@@ -13,63 +13,107 @@ body {
   background: #cde5cf;
   text-align: center;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: flex-end;
   border: 1px solid black;
   position: relative;
 }
 
-@each $box, $row, $column, $angle in $grid {
+@each $box, $row, $column in $grid {
   .board__square:nth-child(#{$box}) {
     grid-row: #{$row};
     grid-column: #{$column};
-    transform: rotate(#{$angle});
   }
 }
 
 .board__square--corner1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 45%;
+  left: 45%;
+  bottom: 0;
+  right: 0;
+  transform: rotate(130deg);
+  color: black;
+  font-size: 1vw;
+}
+.board__square--corner2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 10%;
+  transform: rotate(230deg);
+  color: black;
+  font-size: 1vw;
+}
+.board__square--corner3 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8%;
+  right: 30%;
+  transform: rotate(-45deg);
+  color: black;
+  font-size: 1vw;
+}
+.board__square--corner4 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -6%;
+  left: 72%;
+  transform: rotate(45deg);
+  color: black;
+  font-size: 1vw;
+}
+.board__square--red {
+  grid-row: 3;
+  grid-column: 1 / 3;
+  width: 100%;
+  height: 30px;
+  background-color: red;
+  border-top: 2px solid black;
+}
+.board__square--yellow {
+  width: 100%;
+  height: 30px;
+  background-color: yellow;
+  border-top: 2px solid black;
+}
+.board__square--brown {
+  width: 100%;
+  height: 30px;
+  background-color: #955438;
+  border-top: 2px solid black;
+}
+.board__square--yellow {
+  width: 100%;
+  height: 30px;
+  background-color: yellow;
+  border-top: 2px solid black;
+}
+
+.board__center {
+  position: relative;
+  grid-row: 3 / 12;
+  grid-column: 3 / 12;
+  &--logo {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 45%;
-    left: 45%;
+    top: 0;
+    left: 0;
     bottom: 0;
     right: 0;
-    transform: rotate(130deg);
-    color: black;
-    font-size: 1vw;
-  }
-  .board__square--corner2 {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 10%;
-    transform: rotate(230deg);
-    color: black;
-    font-size: 1vw;
-  }
-  .board__square--corner3 {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 8%;
-    right: 30%;
     transform: rotate(-45deg);
-    color: black;
-    font-size: 1vw;
   }
-  .board__square--corner4 {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -6%;
-    left: 72%;
-    transform: rotate(45deg);
-    color: black;
-    font-size: 1vw;
+  & img {
+    width: 70%;
   }
+}
