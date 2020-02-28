@@ -1,0 +1,28 @@
+body {
+    background-color: #cde5cf;
+}
+.board {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 0rem;
+    grid-template: $rows / $columns;
+    padding: 1em 0;
+  }
+  .board__square {
+    background: #cde5cf;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid black;
+    position: relative;
+  }
+
+  @each $box, $row, $column, $angle in $grid {
+    .board__square:nth-child(#{$box}) {
+      grid-row: #{$row};
+      grid-column: #{$column};
+      transform: rotate(#{$angle});
+    }
+  }
