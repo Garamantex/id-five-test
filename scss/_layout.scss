@@ -1,28 +1,75 @@
 body {
-    background-color: #cde5cf;
+  background-color: #cde5cf;
 }
 .board {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-gap: 0rem;
-    grid-template: $rows / $columns;
-    padding: 1em 0;
-  }
-  .board__square {
-    background: #cde5cf;
-    text-align: center;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    border: 1px solid black;
-    position: relative;
-  }
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-gap: 0rem;
+  grid-template: $rows / $columns;
+  padding: 1em 0;
+}
+.board__square {
+  background: #cde5cf;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border: 1px solid black;
+  position: relative;
+}
 
-  @each $box, $row, $column, $angle in $grid {
-    .board__square:nth-child(#{$box}) {
-      grid-row: #{$row};
-      grid-column: #{$column};
-      transform: rotate(#{$angle});
-    }
+@each $box, $row, $column, $angle in $grid {
+  .board__square:nth-child(#{$box}) {
+    grid-row: #{$row};
+    grid-column: #{$column};
+    transform: rotate(#{$angle});
+  }
+}
+
+.board__square--corner1 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 45%;
+    left: 45%;
+    bottom: 0;
+    right: 0;
+    transform: rotate(130deg);
+    color: black;
+    font-size: 1vw;
+  }
+  .board__square--corner2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 10%;
+    transform: rotate(230deg);
+    color: black;
+    font-size: 1vw;
+  }
+  .board__square--corner3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 8%;
+    right: 30%;
+    transform: rotate(-45deg);
+    color: black;
+    font-size: 1vw;
+  }
+  .board__square--corner4 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -6%;
+    left: 72%;
+    transform: rotate(45deg);
+    color: black;
+    font-size: 1vw;
   }
